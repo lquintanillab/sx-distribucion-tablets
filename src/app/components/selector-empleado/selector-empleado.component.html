@@ -1,0 +1,6 @@
+
+<ion-select  okText="Aceptar" cancelText="Cerrar" class="select-empleado" (ionChange)="onChange()" >
+  <ion-select-option [value]="empleado.id" *ngFor="let empleado of empleados | async">
+      {{empleado.nombre}}
+  </ion-select-option>
+</ion-select>

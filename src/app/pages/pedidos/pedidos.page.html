@@ -1,0 +1,14 @@
+<app-header-surtido title="Pedidos" (searchResult)="buscar($event)" ></app-header-surtido>
+
+<ion-content>
+<ion-progress-bar color="danger" *ngIf="loading" type="indeterminate"></ion-progress-bar>
+<app-asignacion-list [documentos]="pedidos" [tipo]="'FACS'" (pass)="iniciarSurtido($event)" (manual)="asignacionManual($event)">
+</app-asignacion-list>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="load()">
+        <ion-icon name="refresh" ></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+

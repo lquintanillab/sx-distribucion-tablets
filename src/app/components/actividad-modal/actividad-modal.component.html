@@ -1,0 +1,44 @@
+
+  <ion-list lines=“none”>
+      <ion-list-header>
+          <div >
+              <ion-row>
+                  <ion-col size="6" offset="3" justify-content>
+                    <div id="logo-papel">
+                        <img src="/assets/circulo.svg">
+                    </div>
+                  </ion-col>
+              </ion-row>
+          </div>
+      </ion-list-header>
+        <ion-item >
+            <ion-label>Empleado</ion-label>
+           <app-selector-empleado tipo="plantilla" (empleado)="asignarEmpleado($event)" ></app-selector-empleado>
+        </ion-item>
+        <ion-item >
+            <ion-label>Actividad</ion-label>
+            <ion-select  okText="Aceptar" cancelText="Cerrar" class="select-empleado"  (empleado)="asignarEmpleado($event)" >
+                <ion-select-option [value]="actividad" *ngFor="let actividad of actividades">
+                    {{actividad}}
+                </ion-select-option>
+            </ion-select>
+         </ion-item>
+        <ion-item >
+            <ion-label position= "floating">Nip</ion-label>
+            <ion-input type = "password"
+                        [(ngModel)]="nip"
+                        name="nip">
+            </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-row class="ion-justify-content-around">
+                <ion-col size="2" offset="4" >
+                        <ion-button size = "large" (click)="cancelar()">CANCELAR</ion-button>
+                </ion-col>
+                <ion-col  size="2" offset="4" class="ion-padding-start" (click)="aceptar()">
+                        <ion-button size="large">ACEPTAR</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+
+  </ion-list>

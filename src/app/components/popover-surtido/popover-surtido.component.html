@@ -1,0 +1,6 @@
+<ion-list>
+  <ion-item *ngFor="let view of surtidoViews" (click)="navegar(view.path)">
+    <ion-icon name="{{view.icon}}"></ion-icon>
+    <label class="ion-padding-start">{{view.name}}</label>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,69 @@
+<ion-header class="nip">
+    <div  *ngIf="operacion$ | async as operacion">
+        <ion-grid >
+            <ion-row >
+              <ion-col size="3">
+                  {{operacion.maestro.documento}}
+              </ion-col>
+              <ion-col size="8">
+                  {{operacion.maestro.nombre}} 
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+  </div>
+</ion-header>
+<div class="encabezado">
+    <ion-grid>
+        <ion-row>
+        <ion-col size="8">
+          Producto
+        </ion-col>
+        <ion-col size="2">
+          Cantidad
+        </ion-col>
+        <ion-col size="2">
+          Kilos
+        </ion-col>
+    </ion-row>
+    </ion-grid>
+</div>
+<ion-content>
+    <div  *ngIf="operacion$ | async as operacion">
+      <ion-list>
+        <ion-item *ngFor="let partida of operacion.partidas">
+            <ion-grid>
+                <ion-row>
+                  <ion-col size="8">
+                    {{partida.descripcion}}
+                  </ion-col>
+                  <ion-col size="2">
+                    {{partida.cantidad}}
+                  </ion-col>
+                  <ion-col size="2">
+                    {{partida.kilos}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-item class="nip">
+        <ion-label position= "floating">Nip</ion-label>
+        <ion-input type = "password"
+                    [(ngModel)]="nip"
+                    name="nip">
+        </ion-input>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-row class="ion-justify-content-around">
+            <ion-col size="2" offset="4" >
+                    <ion-button size = "large" (click)="cancelar()">CANCELAR</ion-button>
+            </ion-col>
+            <ion-col  size="2" offset="4" class="ion-padding-start" (click)="asignar()">
+                    <ion-button size="large">ASIGNAR</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-item> 
+</ion-footer>

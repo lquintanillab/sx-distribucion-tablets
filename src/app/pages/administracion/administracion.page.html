@@ -1,0 +1,52 @@
+<app-header title="Administración"></app-header>
+
+
+<ion-content color="dark">
+  <section text-center>
+       <img class="logo" src="/assets/logo.svg"> 
+      <!-- <img  class="logo ion-no-padding"  src="/assets/shapes.svg" > -->
+  </section >
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 text-center class="ion-no-padding ion-no-margin" >
+        <ion-card  text-center color="danger" class="ion-no-padding" (click)="goTo('control')"  button>
+          <ion-icon name="alarm" class="icon-dashboard"></ion-icon>
+          <h2>Control</h2>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 text-center class="ion-no-padding ion-no-margin">
+        <ion-card text-center color="tertiary" class="ion-no-padding" (click)="goTo('parciales-tabs/cortes-parciales')" button>
+          <ion-icon name="logo-dropbox"></ion-icon>
+          <h2>Parciales</h2>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-6 text-center class="ion-no-padding ion-no-margin" >
+          <ion-card  text-center color="tertiary" class="ion-no-padding"  (click)="goTo('actividades')" button>
+            <ion-icon name="man"></ion-icon>
+            <h2>Actividades</h2>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6 text-center class="ion-no-padding ion-no-margin" >
+          <ion-card text-center color="danger" class="ion-no-padding" (click)="goTo('buscador')"  button>
+            <ion-icon name="search"></ion-icon>
+            <h2>Buscador</h2>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+
+  <ion-footer>
+    <ion-toolbar color="dark">
+      <ion-title  class="ion-text-center" *ngIf="user" >
+        {{user.nombre}}
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="logout()">
+          Cerrar Sesion:  
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>

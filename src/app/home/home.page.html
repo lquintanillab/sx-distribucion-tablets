@@ -1,14 +1,33 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border>
+  <ion-toolbar color="dark" >
     <ion-title>
-      Ionic Blank
+    
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+
+<ion-content color="dark">
+  <img src="/assets/logo.svg">
+  <img class="ion-align-self-center" src="/assets/titulo3.svg">  
+  <!-- <ion-label color="light"><h1>Sistema de Distribucion</h1></ion-label> -->
+  <ion-fab vertical="bottom" horizontal="center" edge slot="fixed" >
+      <ion-fab-button  color="light">
+        <img src="/assets/circulo.svg">  
+      </ion-fab-button>
+      <ion-fab-list side=top>
+        <!-- <ion-fab-button [routerLink]="['/calculadora']" routerLinkActive="router-link-active" ><ion-icon name="train"></ion-icon></ion-fab-button>   --> 
+        <ion-fab-button [routerLink]="['/administracion']" routerLinkActive="router-link-active" ><ion-icon name="pulse"></ion-icon></ion-fab-button>
+        <ion-fab-button [routerLink]="['/corte']" routerLinkActive="router-link-active" ><ion-icon name="cut"></ion-icon></ion-fab-button>
+        <ion-fab-button [routerLink]="['/home-tabs/facturas']" routerLinkActive="router-link-active" ><ion-icon name="logo-dropbox"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
 </ion-content>
+
+<ion-footer no-border>
+    <ion-toolbar color="dark"  >
+        <ion-title>
+         
+        </ion-title>
+      </ion-toolbar>
+</ion-footer>

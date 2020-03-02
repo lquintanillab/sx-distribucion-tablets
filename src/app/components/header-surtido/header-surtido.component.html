@@ -1,0 +1,21 @@
+<ion-header class="header-surtido">
+    <ion-toolbar color="dark" class="header-toolbar">
+      <ion-buttons slot="start">
+          <img class="logo ion-padding-start" src="/assets/logo.svg" (click)="goToHome()">
+      </ion-buttons>
+      <ion-title  class="ion-text-center title">{{title}}</ion-title>
+   
+          <ion-buttons slot="end">
+              <ion-button (click)="toogleSearch()" >
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+              </ion-button>
+              <ion-button (click)="presentPopover($event)">
+                  <ion-icon slot="icon-only" name="more" class="icon-header"></ion-icon>
+              </ion-button>
+          </ion-buttons>
+      
+    </ion-toolbar>
+    <ion-toolbar color="dark" *ngIf="searchActive">
+        <ion-searchbar placeholder="Buscar" (ionChange)="buscar($event)" type="number" ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>

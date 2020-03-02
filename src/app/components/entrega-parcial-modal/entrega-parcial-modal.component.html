@@ -1,0 +1,47 @@
+<ion-searchbar color="dark" class="no-padding" (ionChange)="buscar($event)" type="number" placeholder="Buscar"></ion-searchbar>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let parcial of parciales" lines = "none">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+              <ion-card>
+                  <ion-card-header>
+                    <ion-card-title color="tertiary">
+                      <ion-grid>
+                        <ion-row class="ion-align-items-center">
+                          <ion-col size="10">
+                              {{parcial.folio_factura}} - {{parcial.fecha | date: 'dd/MM/yyyy' }}
+                          </ion-col>
+                          <ion-col size="1">
+                              <ion-checkbox  color="tertiary" (ionChange)="checked($event, parcial.id)" ></ion-checkbox>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                {{parcial.nombre}}
+                            </ion-col>
+                          </ion-row>
+                      </ion-grid>
+                    </ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                </ion-card> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+            
+    </ion-item>
+  </ion-list>
+  <ion-grid>  
+      <ion-row class="ion-justify-content-around ion-margin-bottom" *ngIf="parciales.length > 0">
+        <ion-col size="3" >
+          <ion-button expand="full" size = "large" (click)="cancelar()">CANCELAR</ion-button>
+        </ion-col>
+        <ion-col size="3"  (click)="aceptar()">
+          <ion-button expand="full"  size="large">ACEPTAR</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,7 @@
+<app-header-surtido title="Entrega Local" (searchResult)="buscar($event)"></app-header-surtido>
+
+<ion-content>
+    <app-surtido-list [surtidos]="surtidos" (pass)="atender($event)"></app-surtido-list>
+</ion-content>
+
+<app-footer></app-footer>
