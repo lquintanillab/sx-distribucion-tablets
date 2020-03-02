@@ -1,0 +1,50 @@
+<ion-header >
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <img class="logo ion-padding-start" src="/assets/logo.svg" (click)="goToHome()">
+      </ion-buttons>
+      <ion-title  class="ion-text-center title">Entregas Parciales</ion-title>
+      <ion-buttons slot="end">
+          <ion-button (click)="load()">
+              <ion-icon slot="icon-only" name="refresh" ></ion-icon>
+          </ion-button>
+          <ion-button (click)="goToBack()">
+              <ion-icon slot="icon-only" name="arrow-back" ></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let entrega of entregas" lines = "none">
+            <ion-grid>
+                <ion-row class="ion-align-items-center">
+                    <ion-col size="3">
+                    <ion-label color="medium" class="documento ion-text-center" [routerLink]="'/atencion-entrega-parcial/' + entrega.id" >
+                        {{entrega.folioFac}}
+                    </ion-label>
+                    </ion-col>
+                    <ion-col size="9">
+                    <ion-card class="card-asignacion" (click)="mostrarDetalle(entrega)">
+                        <ion-card-header>
+                            <ion-card-title color="tertiary">
+                            {{entrega.nombre}}
+                            </ion-card-title>
+                            <ion-card-subtitle>{{entrega.tipoDeVenta}} - {{entrega.folioFac}}</ion-card-subtitle>
+                        </ion-card-header>
+                    </ion-card> 
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" (click)="presentModalParcial()">
+            <ion-icon name="add" ></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>
+
+

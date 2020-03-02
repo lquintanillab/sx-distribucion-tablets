@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="calcularVertical()">vertical</ion-button>
+  <ion-button (click)="calcularHorizontal()" >horizontal</ion-button>
+  <ion-button (click)="calcularMaximo()">maximo</ion-button>
+  <div class= "container-canvas">
+    <canvas #canvasEl  ></canvas>
+  </div>  
+</ion-content>

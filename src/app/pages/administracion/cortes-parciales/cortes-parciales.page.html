@@ -1,0 +1,71 @@
+<ion-header >
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <img class="logo ion-padding-start" src="/assets/logo.svg" (click)="goToHome()">
+      </ion-buttons>
+      <ion-title  class="ion-text-center title">Cortes Parciales</ion-title>
+      <ion-buttons slot="end">
+          <ion-button (click)="load()">
+              <ion-icon slot="icon-only" name="refresh" ></ion-icon>
+          </ion-button>
+          <ion-button (click)="goToBack()">
+              <ion-icon slot="icon-only" name="arrow-back" ></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list lines="none">
+      <ion-item *ngFor="let corte of cortes">
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col size="3">
+              <ion-label color="medium" *ngIf="corte.factura" class="documento ion-text-center" (click)="presentModalAsignacion(corte.id)">
+                {{corte.factura}}
+              </ion-label>
+              <ion-label color="medium" *ngIf="!corte.factura" class="documento ion-text-center" (click)="presentModalAsignacion(corte.id)">
+                  {{corte.venta}}
+                </ion-label>
+            </ion-col>
+            <ion-col size="9">
+                <ion-card class="card-asignacion">
+                    <ion-card-header>
+                      <ion-card-title color="tertiary">
+                        <ion-row>
+                          <ion-col size = "10">
+                              {{corte.clave}} 
+                          </ion-col>
+                          <ion-col size="1">
+                              <ion-badge *ngIf="corte.parcializado"  color="tertiary" padding-start padding-end>Parcializado</ion-badge>
+                            </ion-col >
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                            {{corte.descripcion}}
+                            </ion-col>
+                        </ion-row>
+                      </ion-card-title>
+                      <ion-card-subtitle>
+                        <ion-row>
+                          <ion-col size="10">
+                            <ion-label color="medium" class="instruccion">
+                                Instruccion: {{corte.instruccion}}  
+                            </ion-label>
+                            <ion-label color="medium" class="instruccion">
+                              Cantidad: {{corte.cantidad}}
+                            </ion-label>
+                          </ion-col>
+                          <ion-col size="1">
+                             
+                          </ion-col>
+                        </ion-row>
+                      </ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list> 
+</ion-content>

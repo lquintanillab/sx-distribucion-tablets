@@ -1,5 +1,7 @@
 {
   "name": "sx-distribucion",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

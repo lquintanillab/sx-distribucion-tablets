@@ -1,0 +1,39 @@
+<ion-header >
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+          <img class="logo ion-padding-start" src="/assets/logo.svg" (click)="goToHome()">
+      </ion-buttons>
+      <ion-title  class="ion-text-center title">Surtido</ion-title>
+      <ion-buttons slot="end">
+         <ion-button (click)="goToBack()">
+            <ion-icon slot="icon-only" name="arrow-back" ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-card *ngIf="surtidos">
+      <ion-card-header class="ion-text-center" color="tertiary">
+        <h2>
+          {{entrega.folioFac}} -  {{entrega.fecha | date: 'dd/MM/yyyy'}} - {{entrega.nombre}}
+        </h2>
+      </ion-card-header>
+    </ion-card>
+  <ion-list>
+  
+    <ion-item *ngFor="let surtido of surtidos"  (click)="goToSurtido(surtido)"> 
+      <ion-label>
+        <h2>{{surtido.dateCreated | date: 'dd/MM/yy'}}</h2>
+        <h3>{{surtido.asignado.nombre}}</h3>
+        <p>{{surtido.autorizo.nombre}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="dark">
+    </ion-toolbar>
+  </ion-footer>

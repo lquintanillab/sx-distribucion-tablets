@@ -1,0 +1,69 @@
+<ion-header >
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+        <img class="logo ion-padding-start" src="/assets/logo.svg" (click)="goToHome()">
+    </ion-buttons>
+    <ion-title  class="ion-text-center title">Surtido</ion-title>
+    <ion-buttons slot="end">
+       <ion-button (click)="goToBack()">
+          <ion-icon slot="icon-only" name="arrow-back" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <h3>{{data.surtido.folioFac}} - {{data.surtido.nombre}}</h3>
+      </ion-card-title>
+      <ion-card-title>{{data.surtido.asignado.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+              Producto
+          </ion-col>
+          <ion-col>
+            Descripcion
+            </ion-col>
+            <ion-col>
+            Cantidad
+              </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let partida of data.surtido.parciales">
+          <ion-col>
+              {{partida.clave}}
+          </ion-col>
+          <ion-col>
+            {{partida.descripcion}}
+            </ion-col>
+            <ion-col>
+            {{partida.cantidad}}
+              </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="print()">
+      <ion-fab-button color="primary">
+          <ion-icon name="print" ></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<div>
+    <label>PDF src</label>
+   
+</div>
+<pdf-viewer  
+            [render-text]="true"
+            style="display: block;"
+></pdf-viewer> 
+
+<ion-footer>
+  <ion-toolbar color="dark">
+  </ion-toolbar>
+</ion-footer>

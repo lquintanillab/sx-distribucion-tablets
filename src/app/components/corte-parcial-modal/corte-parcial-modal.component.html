@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-list >
+      <ion-list-header class="ion-justify-content-center">
+        <img  class="logo" src="/assets/circulo.svg">        
+      </ion-list-header>
+      <ion-item *ngFor="let cortador of cortadores" lines="none">
+          <ion-checkbox slot="start" color="tertiary" (ionChange)="checked($event, cortador.id)" ></ion-checkbox>
+          <ion-label>{{cortador.nombre}}</ion-label>
+      </ion-item>
+  </ion-list>
+  <ion-grid>  
+      <ion-row class="ion-justify-content-around ion-margin-bottom">
+        <ion-col size="3" >
+          <ion-button expand="full" size = "large" (click)="cancelar()">CANCELAR</ion-button>
+        </ion-col>
+        <ion-col size="3"  (click)="aceptar()">
+          <ion-button expand="full"  size="large">ACEPTAR</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
+

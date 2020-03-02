@@ -1,0 +1,30 @@
+<app-header-surtido title= "En Proceso" (searchResult)="buscar($event)" ></app-header-surtido>
+
+<ion-content>
+  <ion-list lines = "none">
+    <ion-item *ngFor="let surtido of surtidos">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3">
+              <ion-label color="medium" class="documento ion-text-center" >
+                  {{surtido.documento}}
+              </ion-label>
+          </ion-col>
+          <ion-col size="9">
+              <ion-card class="card-asignacion">
+                  <ion-card-header>
+                    <ion-card-title color="tertiary">
+                      {{surtido.nombre}}
+                    </ion-card-title>
+                    <ion-card-subtitle>{{surtido.tipo}} - {{surtido.folioFac}}</ion-card-subtitle>
+                  </ion-card-header>
+              </ion-card> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<app-footer></app-footer>
